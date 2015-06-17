@@ -3,9 +3,13 @@ var chai = require('chai'),
   assert = chai.assert;
 var uuid = require('node-uuid');
 
-var location = 'inproc://#';
 
-describe('TIMEOUT', function() {
+
+var locations = ['ee://#', 'inproc://#'];
+
+locations.forEach(function(location) {
+
+describe('TIMEOUT ' + location, function() {
   var bhost = location + uuid.v4();
   var ns = uuid.v4();
   var broker = new PIGATO.Broker(bhost);
@@ -201,3 +205,4 @@ describe('TIMEOUT', function() {
     }
   })
 }); */
+});
